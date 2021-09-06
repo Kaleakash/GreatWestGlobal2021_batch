@@ -1,0 +1,81 @@
+Activity 1 
+
+1. In your home directory create a directory named DIR
+2. Copy all files whose filenames satisfy the following conditions to ~/DIR. The files are in /usr/include directory, their names start with m, end with .h and contain a number.
+3. Create a subdirectory called SUBDIR in your DIR directory.
+4. The first five lines of each file you have copied from /usr/include copy to file ~/DIR/SUBDIR/firstfive.
+5. The last lines of files in ~/DIR copy to file ~/DIR/SUBDIR/last.
+6. Concatenate the two files in ~/DIR/SUBDIR into one file ~/DIR/SUBDIR/firstandlast
+7. Delete the files in ~/DIR/SUBDIR except firstandlast.
+8. Store the number of files and directories in ~/DIR into a file ~/DIR/SUBDIR/count
+9. Output the long information on ~/DIR/SUBDIR directory. (Not its content, but information on it).
+10. Delete the contents of ~/DIR/SUBDIR/firstandlast file without removing the file itself.
+11. Add a line containing just a star sign (i.e. *) to file ~/DIR/SUBDIR/firstandlast.
+12. Delete ~/DIR together with all the files it contains.
+
+Activity 2 
+
+File calories.csv, it is a file in a CSV format with semicolon (“;”) used as a field separator.
+1. Replace quotation marks (") with apostrophes (') in file calories.csv
+
+2. Remove apostrophes (') from file calories.csv. In this and the several following exercises we assume that the file is has been modified by preceding exercises, i.e. here after the previous exercise, quotation marks have been replaced with apostrophes.
+
+3. Select the first column from file calories.csv, i.e. the column with food names.
+
+4. In file calories.csv replace upper case characters with their lower case counterparts, but only in the first column. (Cut the first columns using cut, replace capital letters with small ones using tr, then put them back using paste.)
+
+5. Reorder the last three columns of file calories.csv in the opposite order, i.e. after reordering the first column contains amount of proteins, the second contains amount of carbohydrates and the third column contains the amount of fat. Use cut and paste.
+
+6. Select the 9 characters with permissions from the output of ls -l command.
+
+7. Suppose you have three files, summand1, summand2 and sum, each of these files contains the same number of lines, each line contains just a number. Compose these files to just one output where each line has the following format:
+summand1+summand2=sum.
+
+Activity 3 
+1. From file calories.csv select lines in which the food name contains a character which is not alphanumeric (i.e. does not belong to [:alnum:])
+
+2 . From file calories1.csv select lines in which amount is measured in units “Piece” or “Cake”.
+
+
+3. Using sed print only even lines from file /etc/passwd.
+
+
+4. Using sed insert
+
+5. Using sed reverse the order of lines in the input.
+
+
+Activity 4:
+
+id,name,salary,deptId
+1,Raj,12000,30
+2,Reeta,15000,10
+3,Meeta,18000,20
+4,Veeta,20000,10
+5,Ajay,13000,30
+
+Hint : Awk ‘BEGIN {start_action} {action} END {stop_action}’ filename 
+NF	: 	Number of Fields 
+NR 	:	Number of records 
+
+
+1. find all employee total salary using awk command. 
+2. find employee salary deptId wise. 
+
+
+
+Activity 5 
+
+1. Write a shell script which expects two parameters, a file name and a number. The script deletes the line with given number from given file
+
+
+2. Write script reverse which writes its parameters to standard output in reversed order. For example reverse a b c d outputs d c b a.
+
+
+3. Write a shell script which expects file paths in its parameters. The paths in parameters can be relative. For each path in parameter the script outputs the full path of the file.
+
+
+4. Write a shell script which renames all files in the current directory to files with the same name but where the upper case characters are changed into lower case. (E.g. file BACKUP.ZIP would be renamed to backup.zip.)
+
+
+5. Write a shell script which renames all files in the current directory having suffix “.jpg” to files with the same suffix but with numbers instead of names. The numbers are justified to the number of digits as necessary (given by the number of files). (Use the exercises of this practical). For example if the current directory would contain files alice.jpg, bob.jpg, cyril.jpg, daniel.jpg, they would be renamed to 1.jpg, 2.jpg, 3.jpg, and 4.jpg. If there would be at least 10 but at most 99 files having suffix “.jpg”, they would get names 01.jpg, 02.jpg, 03.jpg, 04.jpg, ...
