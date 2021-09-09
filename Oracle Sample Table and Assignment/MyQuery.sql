@@ -139,3 +139,117 @@ select add_months(sysdate, 2) from dual;
 select next_day(sysdate,'Mon') from dual;
 
 select months_between(sysdate, '01-jan-21') from dual;
+
+select * from employees;
+
+select sum(salary) from employees;
+select max(salary) from employees;
+select min(salary) from employees;
+select avg(salary) from employees;
+select count(manager_id) from employees
+select count(commission_pct) from employees;
+select count(employee_id) from employees;
+select count(*) from employees;
+
+select first_name,salary,commission_pct from employees;
+
+
+select first_name,salary,nvl(commission_pct,0) from employees;
+
+select count(nvl(commission_pct,0)) from employees;
+
+select sysdate from employees;
+
+select to_char(sysdate, 'dd-mon-yyyy hh24:mi:ss') from employees;
+
+select to_char(sysdate, 'dd-MM-yyyy hh24:mi:ss') from employees;
+
+select to_char(sysdate, 'day month year dd-mon-yyyy hh24:mi:ss') from employees;
+
+select to_char(hire_date, 'day month year dd-mon-yyyy hh24:mi:ss') from employees;
+
+select commission_pct from employees;
+select nvl(to_char(commission_pct),'No Commission') from employees;
+
+select nvl(commission_pct,'No commission') from employees;
+
+select sum(salary) from employees;
+
+select * from employees;
+
+select sum(salary) from employees group by job_id;
+select sum(salary) from employees group by department_id;
+select sum(salary) from employees group by manager_id
+
+select job_id, sum(salary) from employees group by job_id;
+
+select job_id, sum(salary) from employees group by job_id;
+
+select department_id,sum(salary) from employees group by department_id;
+
+select department_id,sum(salary),max(salary) from employees group by department_id;
+
+
+select department_id,sum(salary)from employees group by department_id having sum(salary) > 50000
+
+select department_id,sum(salary)from employees where department_id <> 100 group by department_id having sum(salary) > 50000
+
+select department_id,sum(salary)from employees where department_id <> 100 group by department_id having sum(salary) > 50000 order by department_id asc;
+
+
+
+select avg(salary) from employees;
+
+select avg(salary) from employees where department_id=100
+
+select first_name,salary from employees where salary > 6461
+
+
+select first_name salary from employees where salary > (select avg(salary) from employees)
+
+select first_name from employees where job_id in (select job_id from employees where department_id=90)
+
+select first_name from employees where department_id in (select department_id from departments where location_id=1400)
+
+desc departments
+select * from departments
+
+select first_name,salary from employees where salary >any (select salary from employees where department_id=100);
+
+select * from employees where EXISTS (select * from departments where department_id=1000)
+
+
+select * from employee;
+
+drop table employee;
+
+
+
+create table employee(id int, name varchar(10),salary float,dob date)
+
+insert into employee(id,name,salary,dob) values(100,'Raj',12000,'01-Jan-90')
+insert into employee(id,name,salary) values(101,'Ravi',14000)
+insert into employee(id,name) values(102,'Ramesh')
+insert into employee values(103,'Rajesh',18000,'06-Feb-98')
+insert into employee values(104,'Ajay',22000,null)
+
+
+select * from employee
+
+drop table employee
+
+alter table employee add desg varchar(2)
+
+alter table employee drop column dob
+
+insert into employee values(105,'Vijay',23000,'Hr')
+insert into employee values(106,'Mahesh',25000,'Manager')
+
+alter table employee modify desg varchar(10)
+
+update employee set salary = 45000
+
+update employee set salary = 35000 where id =100;
+update employee set salary = 37000 where name like 'Ravi';
+
+truncate table employee
