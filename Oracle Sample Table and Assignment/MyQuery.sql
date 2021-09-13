@@ -1,6 +1,9 @@
 select * from employees;
 select * from departments;
 
+
+
+
 select employee_id,first_name,salary from employees;
 
 desc employees;
@@ -253,3 +256,235 @@ update employee set salary = 35000 where id =100;
 update employee set salary = 37000 where name like 'Ravi';
 
 truncate table employee
+
+
+
+select * from employeedetails
+
+
+create table employeedetails(
+empid int primary key,
+fname varchar2(10) not null,
+lname varchar2(10),
+age number(2) check(age>21),
+salary number(8,2) check(salary between 25000 and 50000),
+phnumber number(10) unique,
+company varchar2(10) default 'GWG'
+)
+
+desc employeedetails
+
+insert into employeedetails values(2,'Raj','Deep',23,27000,9911,'IBM')
+insert into employeedetails values(3,'Ravi',null,23,27000,null,'TCS')
+insert into employeedetails values(4,'Ramesh',null,22,27000,null,'TCS')
+insert into employeedetails values(5,'Ajay',null,22,28000,null,'TCS')
+insert into employeedetails(empid,fname,lname,age,salary, phnumber) values(6,'Ram','Patil',26,29000,9933)
+
+-- column level constraints 
+
+create table trainer(
+tid int primary key,
+tname varchar2(10) not null, 
+tech varchar2(10) not null
+)
+insert into trainer values(1,'Raj','Java');
+insert into trainer values(2,'Ravi','Python');
+insert into trainer values(3,'Ramesh','Angular');
+
+select * from trainer;
+
+create table student(
+stid int primary key,
+sname varchar2(10) not null, 
+age number(2) check (age >21),
+tsid int references trainer(tid)
+)
+
+insert into student values(100,'Seeta',23,1);
+insert into student values(101,'Reeta',24,1);
+insert into student values(102,'Veeta',25,2);
+insert into student values(103,'Leeta',26,2);
+insert into student values(104,'Keeta',27,null);
+
+select * from student;
+
+
+
+
+-- table level constraints 
+
+
+create table trainer1(
+tid int,
+tname varchar2(10) not null, 
+tech varchar2(10) not null,
+constraints tpk primary key(tid)
+)
+
+create table student1(
+stid int,
+sname varchar2(10) not null, 
+age number(2) check (age >21),
+tsid int,
+constraints spk primary key(stid), 
+constraints tsfk foreign key(tsid) references trainer1(tid)
+)
+
+
+
+-- Pl SQL programs 
+set serveroutput on;
+
+begin 
+dbms_output.put_line('Welcome to Pl SQL block');
+end;
+
+
+-- declare the variable and display the value. 
+
+declare 
+n number(10);
+m number(10) := 100;
+fname varchar(10) := 'Raj Deep';
+dob date :='20-mar-21';
+begin 
+dbms_output.put_line(n);
+dbms_output.put_line(m);
+dbms_output.put_line('The value of n is '||n);
+dbms_output.put_line('The value of m is '||m);
+dbms_output.put_line('Name is '||fname);
+dbms_output.put_line('DOB is '||dob);
+end;
+
+
+-- declare the variable with constan and not null 
+declare 
+a number(4);
+b number(4) not null := 10;
+c constant number(4) := 20;
+d number(4,2) :=10.20;
+begin 
+a := 100;
+b := 200;
+--c := 300;
+dbms_output.put_line('The value of a '||a);
+dbms_output.put_line('The value of b '||b);
+dbms_output.put_line('The value of c '||c);
+dbms_output.put_line('The value of d '||d);
+end;
+
+-- PL SQL with SQL Statement ie insert, delete and update 
+
+begin 
+insert into employee values(5,'Ajay',18000);
+dbms_output.put_line('Record inserted');
+end;
+
+begin 
+delete from employee where id = 100;
+dbms_output.put_line('record deleted');
+end;
+
+begin 
+update employee set salary = 25000 where id =1;
+dbms_output.put_line('record updated');
+end;
+
+select * from employee;
+
+create table employee(id int primary key,name varchar(10), salary float)
+
+insert into employee values(2,'Ravi',14000);
+
+
+-- Pl SQL with select query 
+
+begin 
+select * from employee;
+end;
+
+set serveroutput on;
+declare 
+v_fname VARCHAR2(10);
+begin 
+select first_name into v_fname from employees where employee_id=100;
+dbms_output.put_line('Employee name is '|| v_fname);
+end;
+
+select * from employees;
+
+
+
+-- pl sql retrieve query with anchor %type attribute 
+
+declare 
+v_fname employees.first_name%type;
+v_salary employees.salary%type;
+v_date employees.hire_date%type;
+begin 
+select first_name,salary,hire_date into v_fname,v_salary,v_date from employees where employee_id=101;
+dbms_output.put_line('Name is '||v_fname);
+dbms_output.put_line('Salary is '||v_salary);
+dbms_output.put_line('Date is '||v_date);
+end;
+
+
+-- if statement 
+declare 
+a number(2):=10;
+b number(2):=50;
+begin 
+ if a > b then 
+ dbms_output.put_line(' a is largest');
+ end if;
+ dbms_output.put_line('Normal Statement');
+end;
+
+-- if else 
+declare 
+a number(2):=10;
+b number(2):=50;
+begin 
+ if a > b then 
+ dbms_output.put_line(' a is largest');
+ else 
+ dbms_output.put_line('b is largest');
+ end if;
+ dbms_output.put_line('Normal Statement');
+end;
+
+-- if else if 
+
+declare 
+a number(2):=10;
+b number(2):=50;
+c number(2):=100;
+begin 
+ if a > b then 
+ dbms_output.put_line(' a is largest');
+ elsif a > c then  
+ dbms_output.put_line('b is largest');
+ else 
+ dbms_output.put_line('C is largest');
+ end if;
+ dbms_output.put_line('Normal Statement');
+end;
+
+-- swith statement 
+declare 
+v number(2):=&id;
+begin 
+ case v 
+  when 1 then 
+  dbms_output.put_line('1st block');
+  when 2 then 
+  dbms_output.put_line('2nd block');
+  when 3 then 
+  dbms_output.put_line('3rd block');
+  else 
+  dbms_output.put_line('wrong block');
+  end case;
+end;
+
+-- simple loop 
+
