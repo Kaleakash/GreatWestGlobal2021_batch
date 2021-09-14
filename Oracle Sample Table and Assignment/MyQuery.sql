@@ -486,5 +486,331 @@ begin
   end case;
 end;
 
--- simple loop 
+-- simple loop like do while loop 
+
+declare 
+i number(2):=1;
+n number(2):=10;
+begin 
+loop 
+  dbms_output.put_line(i);
+  i := i+1;
+  exit when i > n;
+end loop;
+end;
+
+-- while loop 
+
+declare 
+i number(2):=1;
+n number(2):=10;
+begin 
+  while i < n
+  
+  loop 
+  dbms_output.put_line(i);
+  i := i+1;
+  end loop;
+  
+end;
+
+
+-- for loop 
+
+begin 
+ for i in 1..10 
+ loop 
+ 
+ dbms_output.put_line('Value is '||i);
+ 
+ end loop;
+end;
+
+set serveroutput on;
+declare 
+i number(2):=0;
+n number(2):=10;
+begin 
+while i < n
+loop 
+dbms_output.put_line('Value of i is '||i);
+i := i+2;
+end loop;
+end;
+
+
+
+
+
+-- varray with names 
+declare 
+type arrayRefname is varray(5) of varchar(10);
+names arrayRefname;
+begin 
+names := arrayRefname('Raj','Seeta','Reeta','Vijay','Ajay');
+dbms_output.put_line('name is '||names(1));
+dbms_output.put_line('name is '||names(2));
+dbms_output.put_line('name is '||names(3));
+dbms_output.put_line('name is '||names(4));
+dbms_output.put_line('name is '||names(5));
+end;
+
+
+declare 
+type arrayRefname is varray(5) of varchar(10);
+names arrayRefname;
+begin 
+names := arrayRefname('','');
+dbms_output.put_line('Count is '||names.count);
+names(1):='Raj';
+names(2):='Ravi';
+dbms_output.put_line('name is '||names(1));
+dbms_output.put_line('name is '||names(2));
+end;
+
+
+-- composite data type using table names
+
+declare 
+type tableRefName is table of varchar(10) index by varchar(10);
+names tableRefName;
+begin 
+dbms_output.put_line('Table example');
+names(1):='Raj';
+names(2):='Ravi';
+names(3):='Ramesh';
+names(4):='Raju';
+dbms_output.put_line('name is '||names(1));
+dbms_output.put_line('name is '||names(2));
+dbms_output.put_line('name is '||names(3));
+dbms_output.put_line('name is '||names(4));
+end;
+
+
+-- Pl SQL Record example 
+
+declare 
+type record_ref_name is record(
+id number(10),
+name varchar(10)
+);
+record_var record_ref_name;
+begin 
+record_var.id:=100;
+record_var.name:='Raj';
+dbms_output.put_line('Id is '|| record_var.id);
+dbms_output.put_line('Name is '|| record_var.name);
+end;
+
+-- using record retrive employee name and salary 
+set serveroutput on;
+
+declare 
+v_id number(10):=&id;
+type emp_record_ref is record(
+v_name varchar(10),
+v_salary number(10,2)
+);
+emp_record emp_record_ref;
+begin 
+select first_name,salary into emp_record.v_name,emp_record.v_salary from employees where employee_id = v_id;
+dbms_output.put_line('Name is '|| emp_record.v_name);
+dbms_output.put_line('Salary is '|| emp_record.v_salary);
+end;
+
+
+-- using record retrive employee name and salary with %type attribute. 
+set serveroutput on;
+
+declare 
+v_id number(10):=&id;
+type emp_record_ref is record(
+v_name employees.first_name%type,     -- copy data of first_name with size from employees table 
+v_salary employees.salary%type          -- copy data of salary with size from employees table 
+);
+emp_record emp_record_ref;
+begin 
+select first_name,salary into emp_record.v_name,emp_record.v_salary from employees where employee_id = v_id;
+dbms_output.put_line('Name is '|| emp_record.v_name);
+dbms_output.put_line('Salary is '|| emp_record.v_salary);
+end;
+
+
+-- record with rowtype attribute 
+
+declare 
+emp_rec employees%rowtype;
+begin 
+dbms_output.put_line('welcome');
+--select first_name,salary into emp_rec.first_name,emp_rec.salary from employees where employee_id=101;
+select * into emp_rec from employees where employee_id=100;
+dbms_output.put_line('Name is '||emp_rec.first_name);
+dbms_output.put_line('Salary is '||emp_rec.salary);
+dbms_output.put_line('Department Id is '||emp_rec.department_id);
+end;
+
+
+
+
+select * from employee;
+insert into employee values(1,'Raj',12000,'Tester');
+insert into employee values(2,'Ravi',14000,'Developer');
+insert into employee values(3,'Ramesh',16000,'Hr');
+insert into employee values(4,'Rajesh',18000,'Manager');
+
+--withour cursor 
+begin 
+delete from employee where id=100;
+dbms_output.put_line('record deleted');
+end;
+
+
+--with cursor delete query 
+begin 
+delete from employee where id=1;
+if sql%found then 
+dbms_output.put_line('Record deleted successfully');
+else 
+dbms_output.put_line('Record not present');
+end if;
+end;
+--with cursor update query 
+begin 
+update employee set salary = 20000 where salary > 15000;
+if sql%found then 
+dbms_output.put_line('Record updated successfully');
+dbms_output.put_line('Number of records updated are '||sql%rowcount);
+else 
+dbms_output.put_line('Record not present');
+end if;
+end;
+
+select * from employee;
+-- to verify the cursor open or not 
+
+declare 
+cursor emp_cursor is select first_name from employees;
+begin 
+open emp_cursor;
+if emp_cursor%isopen then 
+dbms_output.put_line('Cursor open');
+else 
+dbms_output.put_line('Cursor didnt open');
+end if;
+end;
+
+-- retreive employee_name using cursor 
+
+declare 
+v_name varchar(10);
+cursor emp_cursor is select first_name from employees ;    -- cursor created 
+begin 
+open emp_cursor;                              -- cursor open 
+fetch emp_cursor into v_name;       -- fetch record from cursor 
+dbms_output.put_line('First name is '||v_name);
+fetch emp_cursor into v_name;       -- fetch record from cursor 
+dbms_output.put_line('First name is '||v_name);
+close emp_cursor;               -- close the cursor 
+end;
+
+-- retreive employee_name, salary using cursor with records 
+declare 
+type emp_record_ref is record(
+v_name employees.first_name%type,     -- copy data of first_name with size from employees table 
+v_salary employees.salary%type          -- copy data of salary with size from employees table 
+);
+emp_record emp_record_ref;
+cursor emp_cursor is select first_name,salary from employees ;    -- cursor created 
+begin 
+open emp_cursor;                              -- cursor open 
+fetch emp_cursor into emp_record;       -- fetch record from cursor 
+dbms_output.put_line('First name is '||emp_record.v_name);
+dbms_output.put_line('Salary is '||emp_record.v_salary);
+close emp_cursor;               -- close the cursor 
+end;
+
+select * from employees where department_id in(100,50);
+
+
+
+-- Simple exception example 
+declare 
+a number(2):=10;
+b number(2):=0;
+result number(2);
+begin 
+result := a/b;
+dbms_output.put_line('Result is '||result);
+exception 
+when others then 
+dbms_output.put_line('Exception generated');
+end;
+
+-- zero_divide exception 
+declare 
+a number(2):=10;
+b number(2):=0;
+result number(2);
+begin 
+result := a/b;
+dbms_output.put_line('Result is '||result);
+exception 
+when zero_divide then 
+dbms_output.put_line('Number divided by zero');
+dbms_output.put_line(sqlcode);
+dbms_output.put_line(sqlerrm);
+end;
+
+
+-- not record found
+declare 
+v_name varchar(10);
+begin 
+select first_name into v_name from employees  where employee_id=1000;
+dbms_output.put_line('Name is '||v_name);
+exception 
+when no_data_found then 
+dbms_output.put_line(sqlcode);
+dbms_output.put_line(sqlerrm);
+when too_many_rows then 
+dbms_output.put_line(sqlcode);
+dbms_output.put_line(sqlerrm);
+end;
+
+-- user-defined exception with pre-defined error code 
+drop table sample;
+create table sample(id int primary key,name varchar(10));
+select * from sample;
+
+declare  
+primary_key_exception exception;                                  -- exception type created..
+pragma exception_init(primary_key_exception,-1);        -- register the exception   
+begin 
+insert into sample values(1,'Raj');
+dbms_output.put_line('Record inserted successfully');
+exception 
+when primary_key_exception then 
+dbms_output.put_line('Id must be unique');
+end;
+
+
+-- user-defined exception with error code within a range 
+declare 
+a number(2):=10;
+b number(2):=50;
+my_exp exception;
+begin 
+ if a > b then 
+ raise my_exp;                  --- generated user-defined exception with conditions 
+ else 
+ raise_application_error(-20001,'a < b');   -- pre-defined procedure to raise the exception
+ end if;
+exception 
+when my_exp then 
+dbms_output.put_line(' a>b my exception');
+when others then 
+dbms_output.put_line('a <b');
+end;
+
+
 

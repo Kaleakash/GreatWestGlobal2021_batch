@@ -254,3 +254,32 @@ declare
 Change salary of employee 130 to the salary of the employee with first name ‘Joe’. If Joe is not found then take average salary of all employees. If more than one employee with first name ‘Joe’ is found then take the least salary of the employees with first name Joe.
 
 
+
+In Pl SQL display employee full_name,salary and job_id using any type of loop in PL SQL. 
+
+Display Employee_name,Department_name and City in PL SQL for all Employee using any loop (hint join or without join also). 
+
+From employee table store 10 employee_name, hire_date, salary. if exp is more than 30 year provide the bonus as 5000 for each employee else 
+3000 bonus for remaining employee using varray.
+
+
+From employee table store all employee_name, hire_date, salary. if exp is more than 30 year provide the bonus as 5000 for each employee else 
+3000 bonus for remaining employee using table.
+
+
+Retrive all employee first_name, department_name and city using records with %type attribute. hint you can use join or without join in 
+PLSQL block. 
+
+Retrieve First_name,Salary,Department_name of only those employee working in department id is 100 and 50 
+using cursor with records concept with rowtype% and loop but not fixed size ie for loop(ie don't use 1 to 51).  
+
+
+
+
+
+
+
+ 
+
+
+
