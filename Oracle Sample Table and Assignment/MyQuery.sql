@@ -812,5 +812,213 @@ when others then
 dbms_output.put_line('a <b');
 end;
 
+set serveroutput on
+-- simple procedure 
+
+create procedure myproc1
+as 
+begin 
+dbms_output.put_line('Welcome to simple procedure ');
+dbms_output.put_line('Welcome to simple procedure ');
+end myproc1;
+
+-- calling procedure through anoymous block 
+begin 
+myproc1();
+end;
+
+-- drop the procedure 
+drop procedure myproc1 
+-- callling procecure through exec statement. 
+exec myproc1();
 
 
+create or replace procedure myproc2
+as 
+begin 
+dbms_output.put_line('Welcome to simple procedure..... ');
+dbms_output.put_line('Welcome to simple procedure ');
+end myproc2;
+
+-- calling procedure through anoymous block 
+begin 
+myproc2();
+end;
+
+
+-- procedure with passing parameter as in mode 
+create or replace procedure addNumber(a number,b in number) 
+as 
+add  number(10);
+begin 
+add := a+b;
+dbms_output.put_line('Value of a is '||a);
+dbms_output.put_line('Value of b is '||b);
+dbms_output.put_line('Sum of two nuber is '||add);
+end addNumber;
+
+begin 
+addNumber(10,20);
+end;
+
+
+-- procedure with in and out parameter 
+create or replace procedure getSalary(id in number, v_salary out number) 
+as 
+begin 
+select salary into v_salary from employees where employee_id = id;
+end getSalary;
+
+-- calling procedure 
+declare 
+empId number(10):=&id;
+updated_salary number(10);
+begin 
+getSalary(empId,updated_salary);
+dbms_output.put_line('Salary is '|| updated_salary);
+end;
+
+-- in out parameter 
+create or replace procedure simpleMsg(info in out varchar) 
+as 
+begin 
+dbms_output.put_line('Msg in procedure before change '||info);
+info := 'Hello';
+dbms_output.put_line('Msg in procedure after change '||info);
+end simpleMsg;
+
+declare 
+msg varchar(10):='Hi';
+begin 
+dbms_output.put_line('Before call procedure '||msg);
+simpleMsg(msg);
+dbms_output.put_line('After call procedure '||msg);
+end;
+
+
+-- simple function with return string  value 
+
+create or replace function myfun1 
+return varchar 
+as 
+msg varchar(10);
+begin 
+msg := 'Welcome';
+return msg;
+end myfun1;
+
+-- calling function 
+declare 
+info varchar(10);
+begin 
+info := myfun1();
+dbms_output.put_line('function return the value is '||info);
+end;
+
+-- calling function using tables. 
+
+select myfun1() from dual;
+
+select myfun1() from employees;
+
+
+-- function with passing parameter 
+
+create or replace function addFun(a in number, b in number) 
+return number
+as 
+add number(10);
+begin 
+add := a+b;
+return add;
+end addFun;
+
+-- calling function 
+select addFun(10,20) from dual;
+
+select * from employee;
+
+create table employee_track(id int, dateInfo date);
+
+create or replace trigger emp_trigger 
+before 
+insert 
+on employee
+begin 
+insert into employee_track values(100,sysdate);   -- task. 
+end emp_trigger;
+
+select * from employee_track;
+
+insert into employee values(9,'Dinesh',48000,'Manager');
+
+select id,to_char(dateinfo,'dd MM YYYY hh mi ss') from employee_track;
+
+
+-- creating trigger on product table with update concept. 
+
+
+create table product(pid int primary key,pname varchar(10), price float);
+insert into product values(1,'TV',85000);
+insert into product values(2,'Computer',55000);
+insert into product values(3,'Laptop',115000);
+
+create table product_history(pid int primary key,pname varchar(10), oldprice float, newprice float, dateInfo date);
+
+create sequence productseq 
+
+create or replace trigger product_trigger_track 
+after 
+update 
+of price 
+on product 
+for each row 
+begin 
+insert into product_history values(productseq.nextval,:old.pname,:old.price,:new.price,sysdate);
+end product_trigger_track;
+
+select * from product;
+
+update product set price = 88000 where pid=1;
+update product set price = 52000 where pid=2;
+update product set price = 52000 where pid=5;
+select * from product;
+select * from product_history;
+
+
+-- package 
+
+-- package header part 
+create or replace package com 
+as 
+name varchar(10):='Raj';
+procedure p1;
+procedure p2(id number);
+end com;
+
+-- package body part 
+
+create or replace package body com 
+as 
+procedure p1 as 
+begin 
+dbms_output.put_line('This is simple procedure part of com pacakge');
+dbms_output.put_line('Empty parameter');
+dbms_output.put_line('Name is '||name);
+end p1;
+
+procedure p2(id number) as 
+begin 
+dbms_output.put_line('This is simple procedure part of com pacakge');
+dbms_output.put_line('One parameter '||id);
+dbms_output.put_line('Name is '||name);
+end p2;
+
+end com;
+
+-- calling procedure part of package 
+
+begin 
+com.p1;
+com.p2(10);
+end;

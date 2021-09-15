@@ -273,6 +273,21 @@ PLSQL block.
 Retrieve First_name,Salary,Department_name of only those employee working in department id is 100 and 50 
 using cursor with records concept with rowtype% and loop but not fixed size ie for loop(ie don't use 1 to 51).  
 
+Write a procedure if we pass employee id we have to display department name and city in  anonymous block. (Hint in and out parameter).
+
+Write a procedure if we pass department_id as a parameter we have to return with out parameter as name of the manger of that deparment. 
+
+
+create a two function if we pass employee_id return departmentName and employee_id return city. so when we run the query using employee 
+table like 
+select employee_id,first_name,getDepartement(employee_id),getCity(employee_id) from employees;
+
+create a funtion that takes manager_id and return the name of the employee who report to this manager. The name must be returtn 
+as a string comm separted. 
+
+ 
+
+
 
 
 
