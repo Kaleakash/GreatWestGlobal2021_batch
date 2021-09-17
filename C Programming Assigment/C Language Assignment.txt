@@ -1,0 +1,169 @@
+1. Write a C program that calculates the HCF and LCM of two numbers.
+
+2. Write a pseudo code and flowchart to accept a student’s marks in Physics, Chemistry, and Biology. 
+The total of these marks as well as the average should be displayed.
+
+
+3. Write a C program to display and find the sum of the series 1+11+111+....111 upto n. For eg. if
+n=4, the series is : 1+11+111+1111. Take the value of 'n' as input from the user.
+
+4. Write a C program that reads a positive integer n and then prints the following pattern
+*********
+_********
+__*******
+___******
+____*****
+_____****
+______***
+_______**
+________*
+where n is the number of lines.
+
+
+5. Write a program to evaluate the net salary of an employee given the following constraints: 
+Basic salary : $ 12000 DA : 12% of Basic salary HRA : $150 TA : $120 Others : $450 Tax cuts – 
+a) PF :14% of Basic salary and 
+b) IT: 15% of Basic salary Net Salary = Basic Salary + DA + HRA + TA + Others – (PF + IT)
+
+
+6. Write a program which takes name, basic , daper ( ie, percentage of D.A), 
+bonper (ie, percentage bonus) and loandet ( loan amount to be debited) for an employee. 
+Calculate the salary using the following relation: salary = basic + basic * daper /100 +bonper * basic/100 - loandet 
+Data is: 
+name 	basic 	daper 	bonper 	loandet 	
+M A R K 	2500 	55 	33.33 	250.00 
+
+Employee Table Calculate salary and then print the result under the following headings. 
+
+(Salary to be printed to the nearest dollar.)
+
+
+7. Write a C function for the following problem:
+Given a positive integer n, print the binary representation of n.
+
+8. Write a C program to find the reverse of an integer number.
+
+9. Write a C program to sort an array
+
+10. Write a C program to input n numbers in an array, calculate the sum of all even numbers and all
+odd numbers in the array and print the larger sum.
+Example:
+If the array contains the following elements:
+2, 3, 3, 5, 4, 8, 7, 11, 2
+The sum of all even elements is 2+4+8+2=16
+Sum of all odd elements is 3+3+5+7+11=29
+Therefore, the output should be 29.
+
+11. Write a program to arrange the following names in alphabetical order. 
+George Albert Tina Xavier Roger Tim William
+
+12. Write a program that asks for your first name and last name, and then prints the names in the format last name, first name
+
+13. Write a program to count the number of vowels in a line of text.
+
+14. Write a C program to count the number of vowels and the number of consonants in a word.
+
+15. Write a program to accept a string and find out if it is a palindrome.
+
+16. Write a C program to find the minimum and the maximum value in an array.
+
+17. Write a program that accepts two strings. The program should determine whether the first string occurs at the end of the second string.
+
+ 
+
+18. Take the price and quantity of items as an input. Write a C function to calculate the sum of the
+prices. Write another C function to calculate the discount according to the following rules:
+For total less than Rs.1000, discount is 5%.
+For total greater than Rs.1000 but less than Rs.5000, discount is 10%.
+For total greater than Rs.5000, discount is 15%.
+Write another function to print the individual item prices, total, discount and the final price.
+Example:
+If the prices are as follows:
+
+Item 1: 200
+Item 2: 400
+Item 3: 200
+Item 4: 10
+Item 5: 50
+And the quantities are:
+Item 1: 1
+Item 2: 1
+Item 3: 3
+Item 4: 5
+Item 5: 2
+Then you should print:
+Item Price Quantity Subtotal
+Item 1 200 1 200
+Item 2 400 1 400
+Item 3 200 3 600
+Item 4 10 5 50
+Item 5 50 2 100
+-------------------------------------------------
+TOTAL 1350
+Discount 10% -135
+-------------------------------------------------
+GRAND TOTAL 1215
+
+19. Write a C program to check if a number has three consecutive 5s. If yes, print YES, else print NO.
+Example:
+Number: 1353554
+Result: NO
+Number: 345559
+Result: YES
+
+20. Write a C program to accept the basic salary of an employee from the user. Calculate the gross
+salary on the following basis:
+Basic HRA DA
+1 - 4000 10% 50%
+4001 - 8000 20% 60%
+8001 - 12000 25% 70%
+12000 and above 30% 80%
+
+21. An Electricity board charges the following rates for use of electricity.
+For the First 200 units : Rs 1 per unit
+For the next 100 units : Rs 1.5 per unit
+Beyond 300 units : Rs 2 Per unit.
+Write a C Program to read no of unit consumed and print out total charge amount.
+
+22. Write a C program to take a list of n elements from the user. Store it in an array. Reverse the
+list.
+
+23. Compute taxes for a given income with tax slab rates as follows...
+slab 1... 0-2500: 0%
+slab 2... 2500-5000: 10%
+slab 3... 5000-10000: 20%
+slab 4... 10000+: 30%
+(for each range of a given income, the tax rate is different)
+e.g. input: x = 5200
+divisions are 0-2500, 2500-5000, 5000-5200
+calculation:
+0-2500 of x:
+0% of 2500 = 0
+2500-5000 of x:
+10% of 2500 = 250
+5000-1000 of x:
+20% of 200 = 40
+output: 290
+
+24. Write a C program to implement an inventory system. 
+Store the item number, name, rate and quantity on hand in a structure. 
+Accept the details for five items into a structure array and display the item name and its total price. 
+At the end, display the grand total value of the inventory.
+
+25. Write a C program to store the names and scores of 5 students in a structure array. 
+Sort the structure array in descending order of scores. Display the top 3 scores.
+
+26. Write a C program to store employee details in a structure array. 
+The data should include employee ID, name, salary, and date of joining. 
+The date of joining should be stored in a structure. 
+The program should perform the following operations based on a menu selection: 
+a. Increase the salaries according to the following rules: 
+Salary Range 		Percentage increase 
+<= 2000 			15 % 
+> 2000 and <= 5000 		10 % 
+>5000 			No increase 
+
+Salary Table 
+b. Display the details of employees who complete 10 years with the company.
+
+ 
