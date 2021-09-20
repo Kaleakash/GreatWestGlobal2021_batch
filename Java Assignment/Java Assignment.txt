@@ -1,0 +1,37 @@
+1. Take employee id,name,salary. Salary consider as a basic salary. find hra (10% on salary),
+da (5% on salary) and pf (7% on salary). find Gross Salary and display id,name,grossSalary. 
+
+2. online examination : you have to visit every block mandatory as well as it must visit only one time. 
+	do {
+		1: GK
+		2: Maths 
+		3 : English 
+		4 : Exit 
+			please chose the option 
+			
+		switch(){
+		case 1:	GK block 
+			break
+		case 2 :	Maths block	 
+			break
+		case 3 :	English block 
+			break
+		default :	wrong block 
+			break;
+		}
+			do you want to continue (Yes or no)
+	}while() 
+
+	3 question in each block 
+	4+5 
+	
+	english total + maths total + gk total = total 
+
+	GT	>70 pass else fail 
+
+
+3. you have to declare four array variable id,name,salary, desg base upon the desg we have to provide the bonus for employee 
+if desg is manger 5000, 
+if desg is programmer 3000
+else 1500
+you have to take the help of scanner class to create the array memory and values. 
