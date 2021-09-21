@@ -35,3 +35,58 @@ if desg is manger 5000,
 if desg is programmer 3000
 else 1500
 you have to take the help of scanner class to create the array memory and values. 
+
+4. Create two classes Employee and EmployeeTest 
+Employee class must be contains three instance variable ie id,name,salary
+it must be contains three non static method ie read(), calSalary() and display() 
+create Scanner class objet inside Employee to receive the value through keyword. 
+EmployeeTest class contaisn main method 
+create the object of Employee class call read method to receive the id, name and salary through keyboards. 
+inside calSalary() method declare three local varible hra, da and pf. hra must be 10% on salary, da must be 5% on salary and pf is 
+7% on salary. calculate grosssalary(but don't declare instance variable as grosssSalary variable). 
+then we call display method it must be display id,name,salary(ie gross salary values). 
+
+5. using method overloading find the area of triangle, circle and rectangle ie method name must be area. 
+
+6.
+Create five classes Employee,Manager,Developer, Address and EmployeeTest 
+Employee class must be contains three instance variable ie id,name,salary
+it must be contains three non static method ie read(), calSalary() and display() 
+create Scanner class objet inside Employee to receive the value through keyword. 
+We have to create the Address class object inside Employee class(ie has a relationship (aggregation).
+create Manager and Developer class and that class must be extends Employee class. 
+inside manager we have to create extra variable ie numberOfEmp and two methods readMgr and disMgr to receive numberOfEmp
+and display numberOfEmp; we have to call readAdd() method of address class to recive city, state and pincode. 
+insider Developer we have to create extra variable ie projectName and two methods readDev and disDeve to receive 
+projectName and dispay ProjectName; we have to call readAdd() method of address class to recive city, state and pincode. 
+Now we have to create the Address class which contains city, state and picode instance variable and two methods 
+ie readAdd() and disAdd(). Inside a address class we have to create the Scanner object. 
+
+EmployeeTest class contains main method 
+create the object of Programmer and Manager  class call read method to receive the id, name and salary through keyboards. 
+inside calSalary() method declare three local varible hra, da and pf. hra must be 10% on salary, da must be 5% on salary and pf is 
+7% on salary. calculate grosssalary(but don't declare instance variable as grosssSalary variable). 
+then we call display method it must be display id,name,salary(ie gross salary values). 
+
+Output : 
+
+Manager Information 
+Id 		:100
+Name		: Raj Deep 
+Salary 		: 45500
+NumberOfemp 	: 10
+City		: Bangalore 
+State		:Kar 
+Pincode 		:560096
+
+
+Developer Information 
+Id 		:101
+Name		: Ravi  
+Salary 		: 30000
+NumberOfemp 	: Java
+City		: Bangalore 
+State		:Kar 
+Pincode 		:560001
+
+7. 
