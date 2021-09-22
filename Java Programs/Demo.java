@@ -1,36 +1,23 @@
-class Bike {
-	void speed() {
-		System.out.println("60km/hr");
+class A {
+	A() {
+		System.out.println("A class constructor");	
 	}
-}
-class Honda extends Bike{				// re-usability 
-	void color() {
-		System.out.println("Red");
+	{
+		System.out.println("init block");
 	}
-}
-class Pulsar extends Bike{
-	@Override
-	void speed() {				// method overriding 
-		System.out.println("90km/hr");
+	static {
+		System.out.println("Static block");
 	}
-	void color() {
-		System.out.println("Black");
+	void dis1() {
+		System.out.println("dis1 method");
 	}
-}
-class Tvs extends Bike{
-	@Override
-	void speed() {
-		super.speed();			// calling super class speed() method.  so merge the code 	
-		System.out.println("20km/hr");
-	}
-	void color() {
-		System.out.println("gray");
-	}
+	
 }
 class Demo {
 	public static void main(String args[]) {
-	Honda hh = new Honda();		hh.color();		hh.speed();
-	Pulsar pu = new Pulsar();		pu.color();		pu.speed();	
-	Tvs tv = new Tvs();			tv.color();		tv.speed();
+	A obj1 =new A();
+	obj1.dis1();
+	obj1.dis1();
+	A obj2 = new A();	
 	}
 }
