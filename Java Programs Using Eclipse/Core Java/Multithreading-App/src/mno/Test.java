@@ -1,5 +1,4 @@
 package mno;
-
 class A implements Runnable {
 	@Override
 	public void run() {
