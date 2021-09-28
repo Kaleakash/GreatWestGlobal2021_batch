@@ -8,7 +8,6 @@ import bean.Employee;
 import service.EmployeeService;
 
 public class App {
-
 	public static void main(String[] args) {
 		Scanner obj = new Scanner(System.in);
 		EmployeeService es = new EmployeeService();
