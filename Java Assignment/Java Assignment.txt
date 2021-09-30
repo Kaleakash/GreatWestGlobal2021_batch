@@ -309,4 +309,31 @@ Pincode 		:560001
 
 				main method 
 					do while
- 	 
+
+you have to test for bean, service test , dao test 
+
+13 . Employee Management System 
+		bean 
+		service 
+		dao 
+		resource 
+		test 
+			no main method 
+
+14. Account Management System 
+
+		bean 
+		service 
+		dao 
+		resource 
+		test 
+			no main method 
+
+								jdbc or orm 	java class or properties file 
+	view 		controller			service 		dao 		resource 			database 
+	
+	React/ Angular  	spring boot Rest API 
+ 	
+
+
+ 

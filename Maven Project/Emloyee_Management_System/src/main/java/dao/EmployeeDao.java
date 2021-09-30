@@ -17,7 +17,6 @@ public class EmployeeDao {
 	}
 	public int insertEmployee(Employee emp) {
 		try {
-		
 		PreparedStatement pstmt = con.prepareStatement("insert into employee values(?,?,?)");
 		pstmt.setInt(1, emp.getId());
 		pstmt.setString(2, emp.getName());
@@ -33,7 +32,6 @@ public class EmployeeDao {
 	public List<Employee> getAllEmployeeDetails() {
 		List<Employee> listOfEmp = new ArrayList<>();
 		try {
-			
 			PreparedStatement pstmt = con.prepareStatement("select * from employee");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
