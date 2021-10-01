@@ -336,4 +336,20 @@ you have to test for bean, service test , dao test
  	
 
 
- 
+15. Employee using Stream API. 
+	a. display records ascending order by Id
+	b.  display records desceding order by Id
+	c. display records ascending order by name
+	d.  display records desceding order by name
+	e. display records ascending order by salary
+	f.  display records desceding order by salary 
+	g. display the records salary > value 
+	f. display the recods salary < value 
+	h. add extra column as designation as base upon designation if manager bonus must be 5000,
+	developer must be 3000 else 1500 	
+	i. Date information like dob and joining date. 
+	j. Increment  salary but don' update in database base experience. 
+	> 5 year 30%, > 3 and < 5 year 20% and >1 and <3 10% salary 
+	
+
+	
