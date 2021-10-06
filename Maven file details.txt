@@ -26,3 +26,15 @@ oracle ojdbc jar file dependency
     <scope>test</scope>
 </dependency>
 
+
+Spring boot starter dependencies 
+
+Basic starter for DI and IOC 
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+    <version>2.4.2</version>
+</dependency>
+
+
