@@ -1,9 +1,10 @@
 select * from employees;
 select * from departments;
 
+commit;
 
-
-
+select * from trainer;
+select * from student;
 select employee_id,first_name,salary from employees;
 
 desc employees;

@@ -49,7 +49,6 @@ public class ProductController {
 		return productService.deleteProductInfo(pid);
 	}
 		// http://localhost:9090/findProductById/2
-		
 		@RequestMapping(value = "findProductById/{pid}",method = RequestMethod.GET)
 		public Product findProductInfo(@PathVariable("pid") int pid) {
 			return productService.findProdutInfo(pid);

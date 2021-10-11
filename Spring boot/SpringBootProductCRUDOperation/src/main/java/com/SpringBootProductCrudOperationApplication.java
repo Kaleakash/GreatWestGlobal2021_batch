@@ -3,9 +3,16 @@ package com;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
+
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication(scanBasePackages = "com")
 @EntityScan(basePackages = "com.bean")		// this annotation name to scan all classes with @Entity annotation 
+@EnableSwagger2
 public class SpringBootProductCrudOperationApplication {
 
 	public static void main(String[] args) {
@@ -13,4 +20,8 @@ public class SpringBootProductCrudOperationApplication {
 		System.err.println("Server running on port number 9090");
 	}
 
+	@Bean			// this is use to create the object using @Bean annotation 
+	public Docket productApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("com")).build();
+	}
 }
