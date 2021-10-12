@@ -1,10 +1,20 @@
 select * from employees;
 select * from departments;
 
+desc employees;
+
 commit;
 
 select * from trainer;
 select * from student;
+delete from student;
+delete from trainer;
+commit;
+
+select p from Product p
+
+select t.tid,t.tname,t.tech,s.sid,sname from trainer t, student s where t.tid=s.tsid
+
 select employee_id,first_name,salary from employees;
 
 desc employees;
