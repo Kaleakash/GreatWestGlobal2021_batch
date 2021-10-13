@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+    // class Employee {
+    //         id =100;
+    //         name="Raj"
+    //         display() {
+    //             document.write("Id is "+this.id);
+    //             document.write("name is "+this.name)
+    //         }
+    // }
+    // let emp = new Employee();
+    // emp.id = 100;
+    // emp.display();
+    
+    class Employee {
+        // only one constructor we can't write more than one
+            constructor(id,name) {
+                    this.id = id;
+                    this.name = name;
+            }
+            display() {
+                document.write("Id is "+this.id);
+                document.write("name is "+this.name)
+            }
+    }
+    let emp1 = new Employee(100,"Raj");
+    emp1.display();
+    let emp2 = new Employee(101,"Ramesh");
+    emp2.display();
+    </script>
+</body>
+</html>

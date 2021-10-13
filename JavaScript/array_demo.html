@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+    // let num1 = [];      // literal style array creation 
+    // let num2 = new Array(); // memory style array creation 
+    // let num3 = [10,20,30,40,50];
+    // let num4 = new Array(100,200,300,400);
+    // document.write(num1.length);
+    // document.write("<br>"+num2.length);
+    // num1.push(100)
+    // num1.push(200)
+    // num1.push(300)
+    // num1.push(400)
+    // num1.push(500)
+    // num1.push(600)              // This is use to add the element at last 
+    // num1.unshift(10);           // This is use to add the element at begining 
+    // document.write("<br>"+num1); 
+    // document.write("<br>"+num1.length);
+    // num1.shift();       //remove the element from begining 100 remove 
+    // num1.pop();         // remove the elements from last 600 remove
+    // document.write("<br>"+num1.length);  
+    // document.write("<br>"+num1);     
+    // document.write("<br>"+num1);
+    // let num1 = new Array(100,200,300,400);
+    // document.write("<br>"+num1);
+    // //num1.splice(1,1);          //1st parameter index position and 2nd parameter number of element to delet
+    // //num1.splice(1,2);
+    // //num1.splice(1,0,10);   //1st index, 2nd number element to delete, 3rd add the element  
+    // //num1.splice(1,1,20);
+    // num1.splice(1,0,111,222,333)//1st index, 2nd number of element, 3,4, and 5th add the elements.     
+    // document.write("<br/>"+num1);
+    let num1 = new Array(100,200,300,400);
+    document.write("<br> "+num1);
+    num1.forEach(display);
+
+    function display(n,i){
+        document.write("<br> Value of n is "+n+"i "+i);
+    }
+    document.write("<br>")
+    num1.forEach(function(n,i){
+            document.write("<br> "+n+"Value "+i)
+    });
+    document.write("<br>")
+    num1.forEach((v,i)=>document.write("<br> "+v+" "+i))
+    </script>
+</body>
+</html>

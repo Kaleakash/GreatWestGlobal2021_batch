@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+    //  //ES5 style like a class 
+    //  function Employee() {
+    //         this.id =100;
+    //         this.name = "Raj";                  //property 
+
+    //         this.display = function() {         // behaviour 
+    //             alert("id is "+this.id);
+    //             alert("name is "+this.name);
+    //         }
+    //  }   
+    //  //Employee();
+    // var obj1 = new Employee();       // created the memory 
+    // obj1.display();
+    // var obj2 = new Employee();
+    // obj2.display();
+
+        // parameterized constructor using ES5 style
+    function Employee(id,name) {
+            this.id =id;
+            this.name =name;                  //property 
+
+            this.display = function() {         // behaviour 
+                alert("id is "+this.id);
+                alert("name is "+this.name);
+            }
+     }   
+     //Employee();
+    var obj1 = new Employee(100,"Raj");       // created the memory 
+    obj1.display();                         // calling functionality through objects. 
+    alert(obj1.id+" "+obj1.name)            // calling propety through objects. 
+    Employee.prototype.desg="Developer";       // we can add dynamic property to Employee 
+    alert(obj1.desg)
+    Employee.prototype.info = function(){
+        alert("info function added dynamically")
+        alert("id is "+this.id+" Name "+this.name+" Designation is "+this.desg);
+    }
+    obj1.info();
+    
+    // var obj2 = new Employee(101,"Ramesh");  
+    // obj2.display();
+    //     </script>
+</body>
+</html>

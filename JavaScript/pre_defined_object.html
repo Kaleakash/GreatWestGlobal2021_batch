@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+    var obj = new String("Welcome to JavaScript Training"); // memory creation style 
+    var obj1 = "Welcome to JavaScript Training";        //literal style 
+    document.write(obj)
+    document.write("<br>"+obj.length)
+    document.write("<br>"+obj.toUpperCase())
+    document.write("<br>"+obj1.toLowerCase())
+    document.write("<br>"+obj1.substring(4))
+    document.write("<br>"+obj1.substring(4,10))
+    var obj2 = new Date();
+    document.write("<br>"+obj2)
+    document.write("<br>"+obj2.getDate())
+    document.write("<br>"+obj2.getMonth())
+    obj2.setMonth(obj2.getMonth()+1);
+    document.write("<br>"+obj2.getMonth())
+    document.write("<br>"+obj2.getYear())
+    document.write("<br>"+obj2.getFullYear())
+
+    </script>
+</body>
+</html>

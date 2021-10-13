@@ -10,7 +10,7 @@ private int sid;
 private String sname;
 private int age;
 private int tsid;
-
+private int csid;
 public int getTsid() {
 	return tsid;
 }
@@ -34,6 +34,12 @@ public int getAge() {
 }
 public void setAge(int age) {
 	this.age = age;
+}
+public int getCsid() {
+	return csid;
+}
+public void setCsid(int csid) {
+	this.csid = csid;
 }
 
 }

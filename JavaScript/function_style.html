@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/JavaScript">
+    // normal function style 
+    function display() {
+        document.write("<br> This is normal fuction declaration")
+    }
+    display();              // normal funciton 
+   // let obj = new display();    // now memory 
+    //function expression style using name
+    let display2 = function display1() {
+        document.write("<br> function with expression style")
+    }
+    display2();         // now the function name is variable name
+    // function expression style with anonymous funtion 
+    let display3 = function() {
+        document.write("<br> function with expression style anonyous")
+    }
+    display3();
+    // in Arrow function : is replacement of expression style function 
+    let display4 = ()=>document.write("<br/>This is arrow function")
+    display4();
+
+
+    function greeting(fname,callback){
+            return "Welcome  "+callback(fname);
+    }
+    function maleInfo(fname){           // normal style 
+        return "Mr "+fname;
+    }
+    let femaleInfo = function(fname){   // expression style 
+        return "Miss "+fname;
+    }
+    document.write("<br>"+greeting("Raj",maleInfo));
+    document.write("<br>"+greeting("Reeta",femaleInfo));
+    document.write("<br>"+greeting("Ravi",function(fname){
+        return "Mr "+fname;
+    }))
+    document.write("<br>"+greeting("Ramesh",(fname)=>"Mr "+fname));
+    </script>
+</body>
+</html>

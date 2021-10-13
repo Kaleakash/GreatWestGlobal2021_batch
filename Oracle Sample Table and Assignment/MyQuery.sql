@@ -4,9 +4,32 @@ select * from departments;
 desc employees;
 
 commit;
+create table course(cid int primary key,cname varchar(10));
+insert into course values(1122,'Java');
+insert into course values(1133,'Python');
+
+create table trainer(tid int primary key,tname varchar(10), tech varchar(10));
+insert into trainer values(1,'Raj','Java');
+insert into trainer values(2,'Raju','Python');
+
+create table student(sid int primary key,sname varchar(10), age int, tsid int references trainer(tid), 
+csid int references course(cid));
+insert into student values(100,'Reeta',21,1,1122);
+insert into student values(101,'Veeta',22,1,1122);
+insert into student values(102,'Teeta',23,2,1133);
+insert into student values(103,'Meeta',24,2,1133);
+insert into student values(104,'Leeta',25,null,null);
+commit;
 
 select * from trainer;
 select * from student;
+select * from course;
+drop table trainer;
+
+
+drop table student ;
+
+
 delete from student;
 delete from trainer;
 commit;
