@@ -19,6 +19,7 @@ class Child1 extends React.Component {
             <p>Parent name is child component {this.props.name}</p>
             <p>Child name is child component is {this.state.cname}</p>
             <p>This is child1 age {this.state.age}</p>
+            <p>X value is {this.props.x}</p>
                 </div>
             )
         }

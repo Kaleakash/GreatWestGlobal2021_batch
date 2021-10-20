@@ -6,7 +6,7 @@ import Child2 from './Child2';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {pname:"Raj Deep",childName:""};
+    this.state = {pname:"Raj Deep",childName:"",info:[]};
   }
   callbackFun = (data)=> {
       this.setState({childName:data});
@@ -18,7 +18,7 @@ class App extends React.Component {
         <p>Parent Name is {this.state.pname}</p>
         <p>Child Name is parent component is {this.state.childName}</p>
         <hr/>
-        <Child1 id="100" name={this.state.pname}
+        <Child1 id="100" name={this.state.pname} x="hello" 
         child1ToParent={this.callbackFun}></Child1>
         <hr/>
         <hr/>
